@@ -1,0 +1,119 @@
+import java.util.Scanner;
+public class PenyewaanSepeda{
+	public static void main(String[] args) {
+		Scanner sewa = new Scanner (System.in);
+		int utama,brp;
+		int lipat = 0;
+		int rumus = 0;
+		String name=" ";
+		String email=" ";
+		String telp=" ";
+
+		System.out.println("=================================================================================");
+		System.out.println("--------------------| Selamat Datang di Penyewaan Sepeda |-----------------------");
+		System.out.println("~~~~~~~~~~~~~~~~| Tempat yang menarik untuk Menyewa Sepeda |~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("_________________________________________________________________________________");
+
+	do{
+	System.out.println(" ");
+	System.out.println("-------| Daftar Harga Penyewaan Sepeda |-------");
+	System.out.println("1.Sepeda Lipat Rp.25.000");
+	System.out.println("2.Sepeda Gunung Rp.30.000");
+	System.out.println("3.Sepeda Tandem Rp.40.000");
+	System.out.println("4.Keluar");
+	System.out.print("Pilih Sepeda : ");
+	utama = sewa.nextInt();
+	System.out.println(" ");
+
+	switch (utama) {
+		case 1:
+		do{
+		System.out.println("~~~~~~~| Isi Formulir |~~~~~~~");
+		System.out.print("Nama : ");
+		name = sewa.next();
+		System.out.print("Email : ");
+		email = sewa.next();
+		if (name.isEmpty()){
+			System.out.println("...tidak boleh kosong...");
+				}
+				else if(email.equals(" ")){
+					System.out.println("Email tidak boleh kosong");
+				}
+			}
+		while(name.equals(" ") || email.equals(" "));{
+
+			}
+
+		do {
+			System.out.print("Nomor telepon : ");
+			telp = sewa.next();
+		for (int t = 0 ; t < telp.length() ; t++ ) {
+			if (Character.isDigit(telp.charAt(t))) {
+				
+				}
+			else{
+				System.out.println(" ");
+				System.out.println("...Masukan angka...");
+				System.out.println(" ");
+				telp = "...Error...";
+				break;
+				}
+			}
+		} while (telp.equals("...Error...")); {
+			
+		}
+		System.out.println("Memilih Tipe jenis Sepeda : Sepeda Lipat");
+		System.out.print("Sepeda Tersedia (Y/N)? = ");
+		String back = sewa.next();
+		System.out.println("");
+		if(back.equals("Y")){
+			System.out.print("Input Jumlah Sepeda : ");
+			int input = sewa.nextInt();
+			if(input >= 1){
+				brp = 10000 * input;
+				System.out.print("Berapa Jam sewa sepeda : ");
+				int jam = sewa.nextInt();
+				if(jam > 1){
+					lipat = brp * jam;
+					System.out.println("Denda anda Sebesar : Rp. " + lipat);
+					System.out.print("Pembayaran (Cash/Virtual) : ");
+					String bayar = sewa.next();
+					if(bayar.equals("Cash") || bayar.equals("cash")){
+					System.out.print("Uang Anda : Rp. ");
+					int uang = sewa.nextInt();
+					rumus = uang - lipat;
+					System.out.println("Kembalian Anda : Rp. " + rumus);
+					System.out.println("Silahkan mengambil sepeda di tempat Penyewaan");
+					}else{
+						System.out.println("Total Pembayaran dan Denda anda : " + lipat);
+						System.out.println("Silahkan mengambil sepeda di tempat Penyewaan");
+					}
+				}else{
+				System.out.println("Anda Terbebas dari denda sewa");
+				System.out.print("Pembayaran (Cash/Virtual) : ");
+				String bayar = sewa.next();
+					if(bayar.equals("Cash")){
+						System.out.print("Uang Anda : Rp. ");
+						int uang = sewa.nextInt();
+						rumus = uang - brp;
+						System.out.println("Kembalian Anda : Rp. " + rumus);
+					}else{
+						System.out.println("Silahkan mengambil sepeda di tempat Penyewaan");
+					}
+				}
+			}
+		}else if(back.equals("N")){
+			System.out.println("Silahkan pilih tipe jenis sepeda yang lain");
+			System.out.println(" ");
+		}
+
+		break;
+		}
+	}
+	
+	while (utama != 4); {
+		System.out.println("...Terima Kasih telah menyewa sepeda disini...");
+		System.out.println("         ...Silahkan mengambil sepeda...      ");
+		}
+	}
+}
